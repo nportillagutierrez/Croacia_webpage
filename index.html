@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balkan Summer Trip | Zadar to Montenegro</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <h1 class="logo">BalkanTrip <span>2026</span></h1>
+            <ul class="nav-links">
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#itinerary">Itinerario</a></li>
+                <li><a href="#lodging">Alojamiento</a></li>
+                <li><a href="#map-section">Ruta</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="hero">
+        <div class="hero-bg" style="background-image: url('assets/hero.png');"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2 class="animate-up">El Viaje del Verano</h2>
+            <h1 class="animate-up delay-1">Croacia & Montenegro</h1>
+            <p class="animate-up delay-2">01/07/2026 — 12/07/2026</p>
+            <a href="#itinerary" class="btn primary-btn animate-up delay-3">Ver Itinerario</a>
+        </div>
+    </header>
+
+    <!-- Itinerary Section -->
+    <section id="itinerary" class="section">
+        <div class="container">
+            <h2 class="section-title">Itinerario Detallado</h2>
+            <div class="timeline">
+
+                <!-- Day 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <h3>Día 1: Llegada a Zadar <span class="date">01/07/2026</span></h3>
+                        <img class="card-img" src="assets/zadar.png" alt="Zadar old town at sunset">
+                        <!-- Flights Day 1 -->
+                        <ul>
+                            <li><strong>11:30</strong> - Aeropuerto de Bilbao.</li>
+                        </ul>
+                        <div class="ticket ticket-air">
+                            <div class="ticket-main">
+                                <div class="ticket-header">
+                                    <img src="assets/vueling_logo.png" alt="Vueling" class="logo-vueling">
+                                    <span class="flight-id">VY2451</span>
+                                </div>
+                                <div class="ticket-route">
+                                    <div class="station">
+                                        <span class="code">BIO</span>
+                                        <span class="city">Bilbao</span>
+                                    </div>
+                                    <div class="icon-sep">✈️</div>
+                                    <div class="station">
+                                        <span class="code">MXP</span>
+                                        <span class="city">Milán (Malpensa)</span>
+                                    </div>
+                                </div>
+                                <div class="ticket-times">
+                                    <div class="time-box">
+                                        <span class="time-label">Departs</span>
+                                        <span class="time-val">12:50</span>
+                                    </div>
+                                    <div class="time-box">
+                                        <span class="time-label">Arrives</span>
+                                        <span class="time-val">14:45</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ticket-stub">
+                                <span class="status-badge">On Time</span>
+                                <div class="qr-code">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=VY2451-BIO-MXP"
+                                        alt="QR Code">
+                                </div>
+                            </div>
+                            <div class="ticket-bottom-circle"></div>
+                        </div>
+
+                        <div class="ticket ticket-air">
+                            <div class="ticket-main">
+                                <div class="ticket-header">
+                                    <img src="assets/ryanair_logo.png" alt="Ryanair" class="logo-ryanair">
+                                    <span class="flight-id">FR8762</span>
+                                </div>
+                                <div class="ticket-route">
+                                    <div class="station">
+                                        <span class="code">MXP</span>
+                                        <span class="city">Milán (Malpensa)</span>
+                                    </div>
+                                    <div class="icon-sep">✈️</div>
+                                    <div class="station">
+                                        <span class="code">ZAD</span>
+                                        <span class="city">Zadar</span>
+                                    </div>
+                                </div>
+                                <div class="ticket-times">
+                                    <div class="time-box">
+                                        <span class="time-label">Departs</span>
+                                        <span class="time-val">16:20</span>
+                                    </div>
+                                    <div class="time-box">
+                                        <span class="time-label">Arrives</span>
+                                        <span class="time-val">17:40</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ticket-stub">
+                                <span class="status-badge">On Time</span>
+                                <div class="qr-code">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=FR8762-MXP-ZAD"
+                                        alt="QR Code">
+                                </div>
+                            </div>
+                            <div class="ticket-bottom-circle"></div>
+                        </div>
+
+                        <ul>
+                            <li><strong>19:00</strong> - Coger coche de alquiler en el Aeropuerto de Zadar.</li>
+                            <li>Visitar Zadar.</li>
+                            <li>Tomar algo chill.</li>
+                        </ul>
+                        <div class="recommendations">
+                            <strong>💡 Recomendación:</strong> Pasead por el casco antiguo al atardecer y disfrutad del
+                            sonido natural del Órgano del Mar (Sea Organ) y el espectáculo de luces del Saludo al Sol.
+                        </div>
+                        <span class="location-badge">Noche: Zadar</span>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <h3>Día 2: Lagos Plitvice <span class="date">02/07/2026</span></h3>
+                        <img class="card-img" src="assets/plitvice.png" alt="Plitvice Lakes waterfalls">
+                        <ul>
+                            <li><strong>7:00</strong> - Salida hacia Plitvice (2h aprox).</li>
+                            <li><strong>9:00</strong> - Entrada al parque (Entrada 1).</li>
+                            <li><strong>17:00-17:30</strong> - Salida hacia Zadar.</li>
+                            <li><strong>20:00</strong> - Dejar coche de alquiler en el Aeropuerto de Zadar.</li>
+                        </ul>
+                        <div class="recommendations">
+                            <strong>💡 Recomendación:</strong> Llegad temprano a Plitvice para evitar multitudes.
+                            Aseguraos de ver la Gran Cascada (Veliki Slap) y hacer el recorrido de los Lagos Inferiores.
+                        </div>
+                        <span class="location-badge">Noche: Zadar</span>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <h3>Día 3: Zadar & Boat Party <span class="date">03/07/2026</span></h3>
+                        <img class="card-img" src="assets/boat_party_day3.jpg" alt="Boat party on the sea">
+                        <ul>
+                            <li>Visita por Zadar por la mañana.</li>
+                            <li>Boat party.</li>
+                            <li>Fiesta en Zadar a la noche.</li>
+                        </ul>
+                        <div class="recommendations">
+                            <strong>💡 Recomendación:</strong> Para curar la resaca o picar algo rápido antes de la
+                            fiesta, buscad los locales de comida callejera (burek de queso o carne) cerca de la calle
+                            Kalelarga.
+                        </div>
+                        <span class="location-badge">Noche: Zadar</span>
+                    </div>
+                </div>
+
+                <!-- Day 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <h3>Día 4: Zadar – Split <span class="date">04/07/2026</span></h3>
+                        <img class="card-img" src="assets/split.png" alt="Diocletian Palace Split">
+                        <ul>
+                            <li><strong>12:15</strong> - Bus de Zadar a Split.</li>
+                        </ul>
+                        <!-- Bus Day 4 -->
+                        <div class="ticket ticket-bus">
+                            <div class="ticket-main">
+                                <div class="ticket-header">
+                                    <img src="assets/flixbus_logo.png" alt="FlixBus" class="logo-flixbus">
+                                    <span class="flight-id">FB120</span>
+                                </div>
+                                <div class="ticket-route">
+                                    <div class="station">
+                                        <span class="code">ZAD</span>
+                                        <span class="city">Zadar</span>
+                                    </div>
+                                    <div class="icon-sep">🚍</div>
+                                    <div class="station">
+                                        <span class="code">SPU</span>
+                                        <span class="city">Split</span>
+                                    </div>
+                                </div>
+                                <div class="ticket-times">
+                                    <div class="time-box">
+                                        <span class="time-label">Departs</span>
+                                        <span class="time-val">12:15</span>
+                                    </div>
+                                    <div class="time-box">
+                                        <span class="time-label">Arrives</span>
+                                        <span class="time-val">15:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ticket-stub">
+                                <span class="status-badge" style="background:#f0fff4; color:#38a169;">Confirmed</span>
+                                <div class="qr-code">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=FLIXBUS-ZAD-SPU"
+                                        alt="QR Code">
+                                </div>
+                            </div>
+                            <div class="ticket-bottom-circle"></div>
+                        </div>
+
+                        <ul>
+                            <li>Visitar Split por la tarde.</li>
+                        </ul>
+                        <div class="recommendations">
+                            <strong>💡 Recomendación:</strong> En Split, es imprescindible perderse por las callejuelas
+                            del Palacio de Diocleciano y tomar un helado paseando por el paseo marítimo (La Riva).
+                        </div>
+                        <span class="location-badge">Noche: Split</span>
+                    </div>
+                </div>
+
+                <!-- Day 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <h3>Día 5: Excursiones en Split <span class="date">05/07/2026</span></h3>
+                        <img class="card-img" src="assets/bluecave.png" alt="Blue lagoon crystal clear water">
+                        <ul>
+                            <li>Visitar Split o hacer alguna excursión. Opciones para hacer excursión:
+                                <ul>
+                                    <li>Rafting (Río Cetina).</li>
+                                    <li>Excursión en barco (Visita Blue Cave e islas o Laguna Azul e islas).</li>
+                                    <li>Visita a Mostar (Bosnia).</li>
+                                </ul>
+                            </li>
+                            <li>Fiesta a la noche.</li>
+                        </ul>
+                        <div class="recommendations">
+                            <strong>💡 Recomendación:</strong> La Laguna Azul es perfecta para nadar y relax chill. Si
+                            buscáis historia y algo completamente diferente, Mostar y su famoso puente son
+                            espectaculares (pero preparaos para un viaje más largo).
+                        </div>
+                        <span class="location-badge">Noche: Split</span>
+                    </div>
+                </div>
+
+                <!-- Day 6 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <h3>Día 6: Split – Hvar <span class="date">06/07/2026</span></h3>
+                        <img class="card-img" src="assets/hvar.png" alt="Hvar island harbor">
+                        <!-- Ferry Day 6 -->
+                        <ul>
+                            <li><strong>17:00</strong> - Ferry de Split a Hvar.</li>
+                        </ul>
+                        <div class="ticket ticket-ferry">
+                            <div class="ticket-main">
+                                <div class="ticket-header">
+                                    <img src="assets/tp_line_logo.png" alt="TP Line" class="logo-tpline">
+                                    <span class="flight-id">F108</span>
+                                </div>
+                                <div class="ticket-route">
+                                    <div class="station">
+                                        <span class="code">SPU</span>
+                                        <span class="city">Split</span>
+                                    </div>
+                                    <div class="icon-sep">⛴️</div>
+                                    <div class="station">
+                                        <span class="code">HVR</span>
+                                        <span class="city">Hvar</span>
+                                    </div>
+                                </div>
+                                <div class="ticket-times">
+                                    <div class="time-box">
+                                        <span class="time-label">Departs</span>
+                                        <span class="time-val">17:00</span>
+                                    </div>
+                                    <div class="time-box">
+                                        <span class="time-label">Arrives</span>
+                                        <span class="time-val">17:55</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ticket-stub">
+                                <span class="status-badge" style="background:#fffaf0; color:#dd6b20;">Reserved</span>
+                                <div class="qr-code">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=TPLINE-SPU-HVR"
+                                        alt="QR Code">
+                                </div>
+                            </div>
+                            <div class="ticket-bottom-circle"></div>
+                        </div>
+
+                        <ul>
+                            <li>Ver la ciudad de Hvar.</li>
+                            <li>Tomar algo chill.</li>
+                        </ul>
+                        <div class="recommendations">
+                            <strong>💡 Recomendación:</strong> Subid a la Fortaleza Española (Fortica) justo antes del
+                            atardecer para tener la mejor vista panorámica de la bahía y las islas Pakleni.
+                        </div>
+                        <span class="location-badge">Noche: Hvar</span>
+                    </div>
+                </div>
+
+                <!-- Day 7 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <h3>Día 7: Hvar <span class="date">07/07/2026</span></h3>
+                        <img class="card-img"
+                            src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&h=400&fit=crop"
+                            alt="Party DJ sunset boat">
+                        <ul>
+                            <li>Buscar Boat Party local.</li>
+                            <li>Fiesta por la noche en Hvar.</li>
+                        </ul>
+                        <div class="recommendations">
+                            <strong>💡 Recomendación:</strong> Por la mañana, id a relajaros a la playa de Pokonji Dol.
+                            Para la fiesta, Carpe Diem es el clásico, pero preguntad a los locales por las mejores boat
+                            parties del momento.
+                        </div>
+                        <span class="location-badge">Noche: Hvar</span>
+                    </div>
+                </div>
+
+                <!-- Day 8 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <h3>Día 8: Llegada a Dubrovnik <span class="date">08/07/2026</span></h3>
+                        <img class="card-img" src="assets/dubrovnik.png" alt="Dubrovnik old town walls">
+                        <!-- Ferry Day 8 -->
+                        <ul>
+                            <li>Despertar con calma.</li>
+                            <li><strong>16:45</strong> - Ferry de Hvar a Dubrovnik.</li>
+                        </ul>
+                        <div class="ticket ticket-ferry">
+                            <div class="ticket-main">
+                                <div class="ticket-header">
+                                    <img src="assets/tp_line_logo.png" alt="TP Line" class="logo-tpline">
+                                    <span class="flight-id">F202</span>
+                                </div>
+                                <div class="ticket-route">
+                                    <div class="station">
+                                        <span class="code">HVR</span>
+                                        <span class="city">Hvar</span>
+                                    </div>
+                                    <div class="icon-sep">⛴️</div>
+                                    <div class="station">
+                                        <span class="code">DBV</span>
+                                        <span class="city">Dubrovnik</span>
+                                    </div>
+                                </div>
+                                <div class="ticket-times">
+                                    <div class="time-box">
+                                        <span class="time-label">Departs</span>
+                                        <span class="time-val">16:45</span>
+                                    </div>
+                                    <div class="time-box">
+                                        <span class="time-label">Arrives</span>
+                                        <span class="time-val">20:20</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ticket-stub">
+                                <span class="status-badge" style="background:#fffaf0; color:#dd6b20;">Reserved</span>
+                                <div class="qr-code">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=TPLINE-HVR-DBV"
+                                        alt="QR Code">
+                                </div>
+                            </div>
+                            <div class="ticket-bottom-circle"></div>
+                        </div>
+
+                        <ul>
+                            <li>Dar una vuelta por la ciudad al anochecer.</li>
+                        </ul>
+                        <div class="recommendations">
+                            <strong>💡 Recomendación:</strong> A vuestra llegada a Dubrovnik ya será de noche, la ciudad
+                            iluminada es magia pura. Cenad dentro de la ciudad amurallada para entrar en ambiente.
+                        </div>
+                        <span class="location-badge">Noche: Dubrovnik</span>
+                    </div>
+                </div>
+
+                <!-- Day 9 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <h3>Día 9: Dubrovnik & Montenegro <span class="date">09/07/2026</span></h3>
+                        <img class="card-img" src="assets/dubrovnik2.png" alt="Dubrovnik walls aerial view">
+                        <ul>
+                            <li>Visitar Dubrovnik.</li>
+                            <li><strong>18:00</strong> - Coger coche de alquiler en Dubrovnik (Centro).</li>
+                            <li><strong>20:00</strong> - Viajar a Montenegro (1:15h aprox).</li>
+                        </ul>
+                        <div class="recommendations">
+                            <strong>💡 Recomendación:</strong> En Dubrovnik, tenéis que recorrer las murallas. Ya con el
+                            coche, disfrutad del trayecto por la costa entrando a la impresionante Bahía de Kotor al
+                            atardecer.
+                        </div>
+                        <span class="location-badge">Noche: Montenegro</span>
+                    </div>
+                </div>
+
+                <!-- Day 10 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <h3>Día 10: Ruta Costa Montenegro <span class="date">10/07/2026</span></h3>
+                        <img class="card-img" src="assets/budva.png" alt="Bay of Kotor Montenegro">
+                        <ul>
+                            <li>Ruta Meljine - Kotor - Budva.</li>
+                            <li>Ruta en coche con paradas en playas durante todo el día (hacia el sur).</li>
+                        </ul>
+                        <div class="recommendations">
+                            <strong>💡 Recomendación:</strong> Haced parada obligatoria en el casco antiguo de Kotor. En
+                            Budva, buscad la playa de Sveti Stefan para sacaros las mejores fotos con la icónica
+                            península de fondo.
+                        </div>
+                        <span class="location-badge">Noche: Montenegro</span>
+                    </div>
+                </div>
+
+                <!-- Day 11 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <h3>Día 11: Vuelta a Dubrovnik <span class="date">11/07/2026</span></h3>
+                        <img class="card-img" src="assets/fiesta.png" alt="Dubrovnik nightlife">
+                        <ul>
+                            <li>Volver a Dubrovnik parando en playas por el camino.</li>
+                            <li><strong>19:00</strong> - Dejar coche de alquiler en Dubrovnik.</li>
+                            <li>Lockers / Apartamento pequeño para ducha y dejar maletas.</li>
+                            <li>Fiesta de despedida en Dubrovnik.</li>
+                        </ul>
+                        <div class="recommendations">
+                            <strong>💡 Recomendación:</strong> En el viaje de vuelta, parad en Perast (Montenegro) o en
+                            Cavtat (Croacia) para bañaros. Despedid el viaje tomando un cocktail en Buža Bar, un bar
+                            construido sobre los acantilados de las murallas de Dubrovnik.
+                        </div>
+                        <span class="location-badge">Noche: De fiesta (Sin alojamiento)</span>
+                    </div>
+                </div>
+
+                <!-- Day 12 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <h3>Día 12: Fin del Viaje <span class="date">12/07/2026</span></h3>
+                        <!-- Flights Day 12 -->
+                        <ul>
+                            <li><strong>4:30-5:00</strong> - Taxi/bus al aeropuerto.</li>
+                            <li><strong>07:20</strong> - Vuelo de vuelta desde Dubrovnik.</li>
+                        </ul>
+                        <div class="ticket ticket-air">
+                            <div class="ticket-main">
+                                <div class="ticket-header">
+                                    <img src="assets/easyjet_logo.png" alt="EasyJet" class="logo-easyjet">
+                                    <span class="flight-id">EZY3451</span>
+                                </div>
+                                <div class="ticket-route">
+                                    <div class="station">
+                                        <span class="code">DBV</span>
+                                        <span class="city">Dubrovnik</span>
+                                    </div>
+                                    <div class="icon-sep">✈️</div>
+                                    <div class="station">
+                                        <span class="code">ORY</span>
+                                        <span class="city">París Orly</span>
+                                    </div>
+                                </div>
+                                <div class="ticket-times">
+                                    <div class="time-box">
+                                        <span class="time-label">Departs</span>
+                                        <span class="time-val">07:20</span>
+                                    </div>
+                                    <div class="time-box">
+                                        <span class="time-label">Arrives</span>
+                                        <span class="time-val">10:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ticket-stub">
+                                <span class="status-badge">Confirmed</span>
+                                <div class="qr-code">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=EZY3451-DBV-ORY"
+                                        alt="QR Code">
+                                </div>
+                            </div>
+                            <div class="ticket-bottom-circle"></div>
+                        </div>
+
+                        <div class="ticket ticket-air">
+                            <div class="ticket-main">
+                                <div class="ticket-header">
+                                    <img src="assets/ryanair_logo.png" alt="Ryanair" class="logo-ryanair">
+                                    <span class="flight-id">FR1102</span>
+                                </div>
+                                <div class="ticket-route">
+                                    <div class="station">
+                                        <span class="code">ORY</span>
+                                        <span class="city">París Orly</span>
+                                    </div>
+                                    <div class="icon-sep">✈️</div>
+                                    <div class="station">
+                                        <span class="code">BIO</span>
+                                        <span class="city">Bilbao</span>
+                                    </div>
+                                </div>
+                                <div class="ticket-times">
+                                    <div class="time-box">
+                                        <span class="time-label">Departs</span>
+                                        <span class="time-val">14:00</span>
+                                    </div>
+                                    <div class="time-box">
+                                        <span class="time-label">Arrives</span>
+                                        <span class="time-val">16:45</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ticket-stub">
+                                <span class="status-badge">Confirmed</span>
+                                <div class="qr-code">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=FR1102-ORY-BIO"
+                                        alt="QR Code">
+                                </div>
+                            </div>
+                            <div class="ticket-bottom-circle"></div>
+                        </div>
+
+                        <div class="recommendations">
+                            <strong>💡 Recomendación:</strong> Revisad bien que no os dejáis nada en las taquillas y
+                            llegad con tiempo al aeropuerto. ¡Buen viaje de vuelta!
+                        </div>
+                        <span class="location-badge">Último día</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Summary Table Section -->
+            <div class="summary-container reveal">
+                <h3 style="margin-bottom: 1.5rem; text-align: center;">Resumen del Viaje</h3>
+                <table class="summary-table">
+                    <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>Ubicación</th>
+                            <th>Actividad Principal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Día 1</td>
+                            <td class="day-main">Zadar</td>
+                            <td class="day-desc">Llegada, visita al casco antiguo y relax.</td>
+                        </tr>
+                        <tr>
+                            <td>Día 2</td>
+                            <td class="day-main">Plitvice</td>
+                            <td class="day-desc">Excursión a los Lagos Plitvice.</td>
+                        </tr>
+                        <tr>
+                            <td>Día 3</td>
+                            <td class="day-main">Zadar</td>
+                            <td class="day-desc">Visita a la ciudad y Boat Party. 🛥️🍸</td>
+                        </tr>
+                        <tr>
+                            <td>Día 4</td>
+                            <td class="day-main">Split</td>
+                            <td class="day-desc">Traslado en bus y visita a la ciudad.</td>
+                        </tr>
+                        <tr>
+                            <td>Día 5</td>
+                            <td class="day-main">Split</td>
+                            <td class="day-desc">Excursión (Rafting/Barco/Mostar) y fiesta. 🪩🍸</td>
+                        </tr>
+                        <tr>
+                            <td>Día 6</td>
+                            <td class="day-main">Hvar</td>
+                            <td class="day-desc">Ferry a la isla y tarde de relax.</td>
+                        </tr>
+                        <tr>
+                            <td>Día 7</td>
+                            <td class="day-main">Hvar</td>
+                            <td class="day-desc">Exploración de la isla y Boat Party. 🛥️🍸</td>
+                        </tr>
+                        <tr>
+                            <td>Día 8</td>
+                            <td class="day-main">Dubrovnik</td>
+                            <td class="day-desc">Ferry y visita nocturna a la ciudad.</td>
+                        </tr>
+                        <tr>
+                            <td>Día 9</td>
+                            <td class="day-main">Montenegro</td>
+                            <td class="day-desc">Visita a Dubrovnik y traslado a Kotor.</td>
+                        </tr>
+                        <tr>
+                            <td>Día 10</td>
+                            <td class="day-main">Montenegro</td>
+                            <td class="day-desc">Ruta por la costa (Kotor, Budva, playas).</td>
+                        </tr>
+                        <tr>
+                            <td>Día 11</td>
+                            <td class="day-main">Dubrovnik</td>
+                            <td class="day-desc">Regreso, tarde de playas y fiesta de despedida. 🪩🍸</td>
+                        </tr>
+                        <tr>
+                            <td>Día 12</td>
+                            <td class="day-main">-</td>
+                            <td class="day-desc">Vuelos de regreso a casa.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lodging Section -->
+    <section id="lodging" class="section dark-section">
+        <div class="container">
+            <h2 class="section-title">Alojamientos Reservados</h2>
+            <div class="grid cards-grid">
+
+                <a href="https://www.booking.com/hotel/hr/rainbow-apartments.es.html?aid=2311236&label=es-es-booking-desktop-onknyt5TBrS8m9RnGd%2A6fgS652829001115%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp9207619%3Ali%3Adec%3Adm-Share-thkDcHb%401775821605&sid=d094094b40469de669c10dc2b9883c5d&checkin=2026-07-01&checkout=2026-07-04&dest_id=-101499&dest_type=city&dist=0&group_adults=8&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=8&req_children=0&room1=A%2CA%2CA%2CA%2CA%2CA%2CA%2CA&sb_price_type=total&soh=1&sr_order=popularity&srepoch=1776345995&srpvid=d7cd5e83559f0531&type=total&ucfs=1&#no_availability_msg"
+                    target="_blank" class="glass-card link-card lodging-card">
+                    <div class="card-header">
+                        <h3>Zadar</h3>
+                        <span class="dates">01/07 - 04/07 (3 Noches)</span>
+                    </div>
+                    <p class="hotel-name">Rainbow Apartments</p>
+                    <p class="price">101,13€ <span
+                            style="font-size: 0.9rem; font-weight: normal; color: var(--text-muted);">/ persona</span>
+                    </p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Total grupo: 809€</p>
+                    <div class="btn-sm">Abrir en Booking</div>
+                </a>
+
+                <a href="https://www.booking.com/Share-V5sTt3" target="_blank"
+                    class="glass-card link-card lodging-card">
+                    <div class="card-header">
+                        <h3>Split</h3>
+                        <span class="dates">04/07 - 06/07 (2 Noches)</span>
+                    </div>
+                    <p class="hotel-name">Apartments Bella Vista</p>
+                    <p class="price">74,02€ <span
+                            style="font-size: 0.9rem; font-weight: normal; color: var(--text-muted);">/ persona</span>
+                    </p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Total grupo: 592,12€</p>
+                    <div class="btn-sm">Abrir en Booking</div>
+                </a>
+
+                <a href="https://www.booking.com/Share-SalVeP" target="_blank"
+                    class="glass-card link-card lodging-card">
+                    <div class="card-header">
+                        <h3>Hvar</h3>
+                        <span class="dates">06/07 - 08/07 (2 Noches)</span>
+                    </div>
+                    <p class="hotel-name">Hostel Kapa</p>
+                    <p class="price">72,00€ <span
+                            style="font-size: 0.9rem; font-weight: normal; color: var(--text-muted);">/ persona</span>
+                    </p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Total grupo: 576€</p>
+                    <div class="btn-sm">Abrir en Booking</div>
+                </a>
+
+                <a href="https://www.booking.com/hotel/hr/hostel-365-for-u-dubrovnik.es.html" target="_blank"
+                    class="glass-card link-card lodging-card">
+                    <div class="card-header">
+                        <h3>Dubrovnik</h3>
+                        <span class="dates">08/07 - 09/07 (1 Noche)</span>
+                    </div>
+                    <p class="hotel-name">Hostel 365 for U</p>
+                    <p class="price">51,30€ <span
+                            style="font-size: 0.9rem; font-weight: normal; color: var(--text-muted);">/ persona</span>
+                    </p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Total grupo: 410,40€</p>
+                    <div class="btn-sm">Abrir en Booking</div>
+                </a>
+
+                <a href="https://www.booking.com/hotel/me/villa-bianca.es.html" target="_blank"
+                    class="glass-card link-card lodging-card">
+                    <div class="card-header">
+                        <h3>Montenegro (Meljine)</h3>
+                        <span class="dates">09/07 - 10/07 (1 Noche)</span>
+                    </div>
+                    <p class="hotel-name">Bianca Apartments</p>
+                    <p class="price">19,88€ <span
+                            style="font-size: 0.9rem; font-weight: normal; color: var(--text-muted);">/ persona</span>
+                    </p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Total grupo: 159,04€</p>
+                    <div class="btn-sm">Abrir en Booking</div>
+                </a>
+
+                <a href="https://www.booking.com/hotel/me/rajska-dolina-becici.es.html" target="_blank"
+                    class="glass-card link-card lodging-card">
+                    <div class="card-header">
+                        <h3>Montenegro (Budva)</h3>
+                        <span class="dates">10/07 - 11/07 (1 Noche)</span>
+                    </div>
+                    <p class="hotel-name">Rajska dolina Budva</p>
+                    <p class="price">24,41€ <span
+                            style="font-size: 0.9rem; font-weight: normal; color: var(--text-muted);">/ persona</span>
+                    </p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Total grupo: 195,28€</p>
+                    <div class="btn-sm">Abrir en Booking</div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map-section" class="section">
+        <div class="container">
+            <h2 class="section-title">Mapa de la Ruta</h2>
+            <div class="map-container glass-card">
+                <div id="trip-map" style="height: 500px; width: 100%; border-radius: 12px; z-index: 1;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 BalkanTrip. Listo para la aventura.</p>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

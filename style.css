@@ -1,0 +1,876 @@
+/* Base Variables - Light Summer Theme */
+:root {
+    --primary: #00a5cf;
+    /* adriatic blue */
+    --secondary: #ff7e67;
+    /* sunset coral */
+    --bg-color: #f8fafc;
+    /* very light blue-grey */
+    --bg-alt: #e2e8f0;
+    /* slightly darker for alternating sections */
+    --text-main: #1e293b;
+    /* dark slate gray for readability */
+    --text-muted: #64748b;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.5);
+
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: #0f172a;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    text-align: center;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Navigation */
+.glass-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+    transition: var(--transition);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    /* Soft shadow since we are light now */
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    transform: scale(1.05);
+}
+
+/* Update hero overlay for lighter feel but maintaining text readability */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(248, 250, 252, 0.9) 100%);
+    z-index: -1;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 2rem;
+    z-index: 1;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.hero h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+    /* Ensure dark text over lighter overlay */
+    text-shadow: 0 4px 15px rgba(255, 255, 255, 0.8);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+    color: var(--text-muted);
+}
+
+/* Recommendations Block */
+.recommendations {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: rgba(255, 126, 103, 0.1);
+    border-left: 4px solid var(--secondary);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+/* Generic Layout */
+.section {
+    padding: 8rem 2rem;
+    position: relative;
+}
+
+#itinerary {
+    background-image: url('assets/plitvice.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#itinerary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(248, 250, 252, 0.85);
+    z-index: 0;
+}
+
+#itinerary .container {
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dark-section {
+    background-color: var(--bg-alt);
+    /* Using the alt background instead of "dark" */
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.primary-btn {
+    background: linear-gradient(45deg, var(--primary), #0077b6);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 165, 207, 0.4);
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 165, 207, 0.6);
+}
+
+.btn-sm {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    background: var(--bg-alt);
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: var(--transition);
+    border: 1px solid var(--glass-border);
+}
+
+.btn-sm:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* Glassmorphism Classes */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.07);
+    padding: 2rem;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: rgba(30, 41, 59, 0.2);
+    top: 0;
+    bottom: 0;
+    left: 31px;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    padding: 20px 0 20px 70px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.timeline-item.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+    left: 21px;
+    top: 30px;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 165, 207, 0.5);
+    transition: var(--transition);
+}
+
+.timeline-item:hover .timeline-dot {
+    background: var(--primary);
+    transform: scale(1.2);
+}
+
+.timeline-content {
+    transition: transform 0.3s ease;
+    border-top: 4px solid var(--primary);
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: transform 0.4s ease;
+}
+
+.timeline-content:hover .card-img {
+    transform: scale(1.03);
+}
+
+.timeline-content:hover {
+    transform: translateX(5px);
+    border-color: rgba(0, 165, 207, 0.4);
+}
+
+/* Ensure timeline content with bg images looks good in light theme.
+   Changing linear gradient alpha to allow better text visibility. */
+.timeline-content.has-image {
+    background-size: cover;
+    background-position: center;
+    color: white !important;
+    /* Force white text over images */
+}
+
+.timeline-content.has-image h3,
+.timeline-content.has-image .date,
+.timeline-content.has-image ul,
+.timeline-content.has-image li {
+    color: white !important;
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timeline-content .date {
+    font-size: 0.9rem;
+    color: var(--primary);
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+
+.timeline-content ul {
+    margin-left: 1.5rem;
+    color: var(--text-muted);
+}
+
+.timeline-content li {
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content.has-image .recommendations {
+    background: rgba(255, 126, 103, 0.2);
+    color: white;
+}
+
+.location-badge {
+    display: inline-block;
+    margin-top: 1.2rem;
+    padding: 0.3rem 0.8rem;
+    background: rgba(0, 165, 207, 0.1);
+    color: var(--primary);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 1px solid rgba(0, 165, 207, 0.3);
+}
+
+/* Grid Layout for Cards */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.link-card {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.link-card.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.link-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+.lodging-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(30, 41, 59, 0.1);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.lodging-card .dates {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.lodging-card .hotel-name {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.lodging-card .price {
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    color: var(--secondary);
+}
+
+/* Maps */
+.map-container {
+    padding: 0.5rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem;
+    background: var(--bg-alt);
+    color: var(--text-muted);
+    border-top: 1px solid rgba(30, 41, 59, 0.1);
+}
+
+/* Animations */
+.animate-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 0.8s forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .timeline::after {
+        left: 20px;
+    }
+
+    .timeline-item {
+        padding-left: 50px;
+    }
+
+    .timeline-dot {
+        left: 7px;
+    }
+
+    .timeline-content h3 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+/* Redesigned Travel Ticket Component - Modern UI */
+.ticket {
+    background: #ffffff;
+    border-radius: 16px;
+    display: flex;
+    margin: 1.5rem auto;
+    /* Centered */
+    max-width: 480px;
+    /* Narrower */
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+    color: #1a1a1a;
+    font-family: var(--font-body);
+}
+
+/* Vertical Perforation */
+.ticket::before {
+    content: '';
+    position: absolute;
+    right: 25%;
+    /* Adjusted stub width */
+    top: -10px;
+    bottom: -10px;
+    width: 2px;
+    border-left: 2px dashed #e2e8f0;
+    z-index: 1;
+}
+
+/* Semi-circles for the tear effect */
+.ticket::after {
+    content: '';
+    position: absolute;
+    right: calc(25% - 10px);
+    top: -10px;
+    width: 20px;
+    height: 10px;
+    background: var(--bg-color);
+    border-radius: 0 0 10px 10px;
+    z-index: 2;
+}
+
+.ticket-bottom-circle {
+    position: absolute;
+    right: calc(25% - 10px);
+    bottom: -10px;
+    width: 20px;
+    height: 10px;
+    background: var(--bg-color);
+    border-radius: 10px 10px 0 0;
+    z-index: 2;
+}
+
+.ticket-main {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+.ticket-header img {
+    height: 45px;
+    max-width: 170px;
+    object-fit: contain;
+}
+
+.logo-tpline {
+    height: 25px !important;
+    /* Further reduced */
+}
+
+.logo-ryanair {
+    height: 35px !important;
+    /* Normalized to match the rest */
+    max-width: 160px !important;
+}
+
+.logo-vueling {
+    height: 45px !important;
+    /* Further reduced */
+    max-width: 190px
+}
+
+.logo-flixbus,
+.logo-easyjet {
+    height: 45px;
+    max-width: 150px
+}
+
+.ticket-header .brand {
+    font-weight: 800;
+    font-size: 0.95rem;
+    /* Slightly larger text to match logos */
+    color: #4a5568;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.ticket-header .flight-id {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+.ticket-route {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.ticket-route .station {
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-route .code {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.ticket-route .city {
+    font-size: 0.75rem;
+    color: #718096;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.ticket-route .icon-sep {
+    color: #cbd5e0;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+    /* Larger icon */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.ticket-times {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -0.5rem;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.time-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: #a0aec0;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.time-val {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #2d3748;
+}
+
+/* Right side / Stub */
+.ticket-stub {
+    width: 25%;
+    /* Adjusted stub width */
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: #fdfdfd;
+}
+
+.stub-info {
+    text-align: center;
+}
+
+.stub-label {
+    display: block;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    color: #a0aec0;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.stub-val {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #2d3748;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: #e6fffa;
+    color: #319795;
+    margin-bottom: 1rem;
+}
+
+.qr-code {
+    width: 60px;
+    height: 60px;
+    background: #f7fafc;
+    border: 1px solid #edf2f7;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.qr-code img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Thematic Color Accents */
+.ticket-air .ticket-route .code {
+    color: #3182ce;
+}
+
+.ticket-bus .ticket-route .code {
+    color: #38a169;
+}
+
+.ticket-ferry .ticket-route .code {
+    color: #dd6b20;
+}
+
+@media screen and (max-width: 600px) {
+    .ticket-stub {
+        display: none;
+    }
+
+    .ticket::before {
+        display: none;
+    }
+
+    .ticket::after {
+        display: none;
+    }
+
+    .ticket-bottom-circle {
+        display: none;
+    }
+}
+
+/* Summary Table Styles */
+.summary-container {
+    margin-top: 4rem;
+    overflow-x: auto;
+}
+
+.summary-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.07);
+}
+
+.summary-table th, 
+.summary-table td {
+    padding: 1.2rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.summary-table th {
+    background: rgba(0, 165, 207, 0.1);
+    color: var(--primary);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.summary-table tr:last-child td {
+    border-bottom: none;
+}
+
+.summary-table td:first-child {
+    font-weight: 700;
+    color: var(--text-main);
+    width: 100px;
+}
+
+.summary-table .day-main {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.summary-table .day-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+@media screen and (max-width: 600px) {
+    .summary-table th, 
+    .summary-table td {
+        padding: 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+    .summary-table td:first-child {
+        width: 70px;
+    }
+}
