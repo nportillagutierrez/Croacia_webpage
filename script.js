@@ -126,4 +126,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', scrollReveal);
     scrollReveal(); // Run once on load
+
+    // 5. Trip Countdown Timer
+    const countdownDate = new Date("July 1, 2026 00:00:00").getTime();
+
+    const updateCountdown = () => {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const daysEl = document.getElementById("days");
+        const hoursEl = document.getElementById("hours");
+        const minsEl = document.getElementById("minutes");
+        const secsEl = document.getElementById("seconds");
+
+        if (daysEl) daysEl.innerText = days < 10 ? "0" + days : days;
+        if (hoursEl) hoursEl.innerText = hours < 10 ? "0" + hours : hours;
+        if (minsEl) minsEl.innerText = minutes < 10 ? "0" + minutes : minutes;
+        if (secsEl) secsEl.innerText = seconds < 10 ? "0" + seconds : seconds;
+
+        if (distance < 0) {
+            clearInterval(timerInterval);
+            const countdownEl = document.getElementById("hero-countdown");
+            if (countdownEl) countdownEl.innerHTML = "<h3 style='color: var(--primary)'>¡El viaje ha comenzado!</h3>";
+        }
+    };
+
+    const timerInterval = setInterval(updateCountdown, 1000);
+    updateCountdown(); // Run once to prevent delay
 });

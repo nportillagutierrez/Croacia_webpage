@@ -172,8 +172,44 @@ h6 {
 .hero p {
     font-size: 1.2rem;
     font-weight: 500;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     color: var(--text-muted);
+}
+
+/* Hero Countdown */
+.hero-countdown {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    min-width: 80px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.countdown-item .number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.countdown-item .label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 4px;
 }
 
 /* Recommendations Block */
@@ -872,5 +908,148 @@ footer {
     
     .summary-table td:first-child {
         width: 70px;
+    }
+}
+
+/* Gastronomy Section */
+.gastronomy-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.city-guide {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+}
+
+.city-info h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.city-info .city-desc {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.rec-categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.rec-group h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.rec-list {
+    list-style: none;
+}
+
+.rec-list li {
+    background: white;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--glass-border);
+    transition: var(--transition);
+}
+
+.rec-list li:hover {
+    transform: translateX(5px);
+    border-color: var(--primary);
+}
+
+.rec-list li strong {
+    display: block;
+    color: var(--text-main);
+}
+
+.rec-list li span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Typical Dishes */
+.typical-dishes {
+    margin-top: 5rem;
+    padding-top: 4rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.dish-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    text-align: center;
+}
+
+.img-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: #e2e8f0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border: 2px dashed #cbd5e0;
+}
+
+.img-placeholder::after {
+    content: '📷 Añadir Imagen';
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.dish-card h4 {
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.dish-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+@media screen and (max-width: 992px) {
+    .city-guide {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-countdown {
+        gap: 0.8rem;
+    }
+    
+    .countdown-item {
+        padding: 0.6rem 0.8rem;
+        min-width: 65px;
+    }
+    
+    .countdown-item .number {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .rec-categories {
+        grid-template-columns: 1fr;
     }
 }
